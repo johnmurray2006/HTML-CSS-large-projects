@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#007600">
+    <!-- Each class, id and name change --> 
+    <titlebold>Rasta Rob's Pizza Palace</titlebold>
+    
+<p><h1><font color="#ffff00">Choose from the many options down below for your personalize pizza</font></h1></p>
+
+<div id="menuBG">
+    <form id="menu">
+            
+<div class="size" data-toggle="buttons">
+        <H2><font color="#ff0000">What size pizza would you like</font></H2>
+              <input type="radio" name="size" id="size1" autocomplete="off" value="Personal Pizza"> Personal Pizza
+              <input type="radio" name="size" id="size2" autocomplete="off"value="Medium Pizza"> Meduim Pizza
+              <input type="radio" name="size" id="size3" autocomplete="off" value="Large Pizza"> Large Pizza
+              <input type="radio" name="size" id="size4" autocomplete="off" value="XLarge Pizza"> XLarge Pizza
+</div>
+</div>
+
+
+                   <!-- Had to name separately so the buttons worked-->
+
+<div class="cheese" data-toggle="buttons">
+        <H2><font color="#ff0000">Your cheese options</font></H2>
+              <input type="radio" name="cheese" id="cheese1" autocomplete="off"  value= " Regular Cheese"> Regular Cheese
+              <input type="radio" name="cheese" id="cheese2" autocomplete="off"value=" No Cheese"> No cheese
+              <input type="radio" name="cheese" id="cheese3" autocomplete="off" value=" Extra Cheese"> Extra Cheese
+             
+</div>
+<div class="crust" data-toggle="buttons">
+        <H2><font color="#ffff00">Your crust options</font></H2>
+            <input type="radio" name="crust" id="crust" autocomplete="off"  value=" Plain Crust"> Plain Crust
+            <input type="radio" name="crust" id="crust" autocomplete="off"value=" Garlic Crust"> Garlic Crust
+            <input type="radio" name="crust" id="crust" autocomplete="off" value=" Cheese Stuffed Crust"> Cheese Stuffed Crust
+            <input type="radio" name="crust" id="crust" autocomplete="off"  value=" Spicy Crust"> Spicy Crust
+            <input type="radio" name="crust" id="crust" autocomplete="off"value=" House Speciality Crust"> House Speciality Crust
+<div class="sauce" data-toggle="buttons">
+        <H2><font color="#ff0000">Sauce for your pie</font></h2>
+            <input type="radio" name="sauce" id="sauce" autocomplete="off"  value=" No Sauce"> No Sauce
+            <input type="radio" name="sauce" id="sauce" autocomplete="off"  value=" Marinara Sauce"> Marinara Sauce
+            <input type="radio" name="sauce" id="sauce" autocomplete="off"  value=" White sauce"> White Sauce
+            <input type="radio" name="sauce" id="sauce" autocomplete="off"  value=" Barbeque Sauce"> Barbeque Sauce
+        </div>
+        <div class="meat" data-toggle="buttons">
+                <H2><font color="#ffff00">Choose your meat toppings. First is on the house after that a dollar each selection.</font></H2>
+             <!--   <button onclick="forEach(myFunction)"></button>-->
+            <input type="checkbox" autocomplete="off" name="meat" value="Pepperoni"> Pepperoni
+            <input type="checkbox" autocomplete="off" name="meat" value="Sausage"> Sausage
+            <input type="checkbox" autocomplete="off" name="meat" value="Anchovy"> Anchovy
+            <input type="checkbox" autocomplete="off" name="meat" value="Ground Beef"> Ground Beef
+            <input type="checkbox" autocomplete="off" name="meat" value="Canadain Bacon"> Canadain Bacon
+            <input type="checkbox" autocomplete="off" name="meat" value="Chicken"> Chicken
+        </div>
+            <h2><font color="#ff0000">Choose from an array of vegatables</font></h2>
+        <div class="veggy" data-toggle="buttons">
+           <!--     <button onclick="forEach(myFunction)"></button>--> 
+          <input type="checkbox" autocomplete="off" name="veggy" value="Onions"> Onions
+          <input type="checkbox" autocomplete="off" name="veggy" value="Olives"> Olives
+          <input type="checkbox" autocomplete="off" name="veggy" value="Tomatos"> Tomatos
+          <input type="checkbox" autocomplete="off" name="veggy" value="Mushrooms"> Mushrooms
+          <input type="checkbox" autocomplete="off" name="veggy" value="Green Peppers"> Green Peppers
+          <input type="checkbox" autocomplete="off" name="veggy" value="Pineapple"> Pineapple
+          <input type="checkbox" autocomplete="off" name="veggy" value="Jalapeno"> Jalapeno
+          
+        </div>
+        </div>
+    </form>
+        
+    </div>
+
+<input id="btnOrder" type="button" onclick="getReceipt()"
+            value="Place Order">
+        <form id="frmMenu">
+<div id="cart">
+        <div id="showText"></div>
+        <div id="totalPrice"></div>
+</div>
+<script>
+    function getReceipt() {
+        var text1 = "<h3>You Ordered:</h3>";
+            var runningTotal = 0;
+            var sizeTotal ;
+            var selectedSize ;
+            var sizeArray = document.getElementsByName("size");
+            for (var a = 0; a < sizeArray.length; a++) {
+                if (sizeArray[a].checked) {
+                    selectedSize = sizeArray[a].value;
+                    
+         }
+            }
+            if (selectedSize == "Personal Pizza") {
+                sizeTotal = 6;
+            } else if (selectedSize == "Medium Pizza") {
+                sizeTotal = 10;
+            } else if (selectedSize == "Large Pizza") {
+                sizeTotal = 14;
+            } else if (selectedSize == "XLarge Pizza") {
+                sizeTotal = 16;
+         } 
+            runningTotal = sizeTotal;
+            alert(selectedSize + " " + sizeTotal); // debug
+            console.log(selectedSize+"= $"+sizeTotal+".00");
+            console.log("size text1: "+text1);
+            console.log("subtotal: $"+runningTotal+".00");
+           // alert("a")
+
+            var runningTotal = 0;
+            var crustTotal ;
+            var selectedCrust ;
+            var crustArray = document.getElementsByName("crust");
+            for (var b = 0; b < crustArray.length; b++) {
+                if (crustArray[b].checked) {
+                  selectedCrust = crustArray[b].value;
+            
+           }
+        }
+            if (selectedCrust == " Garlic Crust") {
+                crustTotal = 0;
+            } else if (selectedCrust == " House Speciality Crust") {
+                crustTotal = 0;
+            } else if (selectedCrust == " Cheese Stuffed Crust") {
+                crustTotal = 3;
+            } else if (selectedCrust == " Plain Crust") {
+                crustTotal = 0;
+         }
+         else if (selectedCrust == " Spicy Crust") {
+                crustTotal = 0;
+         }  
+            runningTotal = crustTotal + sizeTotal;
+            alert(selectedCrust + " " + crustTotal) // debug
+            console.log(selectedCrust+" = $"+crustTotal+".00");
+            console.log("crust text1: "+text1);
+            console.log("subtotal: $"+runningTotal+".00");
+           // alert("b")
+        
+            var runningTotal = 0;
+            var cheeseTotal ;
+            var selectedCheese ;
+            var cheeseArray = document.getElementsByName("cheese");
+            for (var c = 0; c < cheeseArray.length; c++) {
+                if (cheeseArray[c].checked) {
+                     selectedCheese = cheeseArray[c].value;
+                
+         }
+            
+            if (selectedCheese == " No Cheese") {
+                cheeseTotal = 0;
+            } else if (selectedCheese == " Regular Cheese") {
+                cheeseTotal = 0;
+            } else if (selectedCheese == " Extra Cheese") {
+                cheeseTotal = 3;
+            }	
+        }
+             runningTotal = crustTotal + sizeTotal +cheeseTotal;
+            alert(selectedCheese + " " + cheeseTotal) // debug 
+            console.log(selectedCrust+" = $"+crustTotal+".00");
+            console.log("cheese text1: "+text1);
+            console.log("subtotal: $"+runningTotal+".00");
+           // alert("c")
+
+            var runningTotal = 0;
+            var sauceTotal ;
+            var selectedSauce ;
+            var sauceArray = document.getElementsByName("sauce");
+            for (var d = 0; d < sauceArray.length; d++) {
+                if (sauceArray[d].checked) {
+                     selectedSauce = sauceArray[d].value;
+                  text1 = text1+ selectedSize + selectedCrust + selectedCheese + selectedSauce+"<br>";
+         }
+            
+            if (selectedSauce == " No Sauce") {
+                sauceTotal = 0;
+            } else if (selectedSauce == " Marinara Sauce") {
+                sauceTotal = 0;
+            } else if (selectedSauce == " White sauce") {
+                sauceTotal = 0;
+            }    else if (selectedSauce == " Barbeque Sauce") {
+                sauceTotal = 0;
+            }	
+        }      
+            runningTotal = crustTotal + sizeTotal + cheeseTotal + sauceTotal;
+            console.log(selectedSauce+" = $"+sauceTotal+".00");
+            console.log("sauce text1: "+text1);
+            console.log("subtotal: $"+runningTotal+".00");
+         alert("d")
+
+         var meatTotal = 0;
+            var selectedMeat = [];
+            var meatArray = document.getElementsByName("meat");
+            for (var j = 0; j < meatArray.length; j++) {
+                if (meatArray[j].checked) {
+                    selectedMeat.push(meatArray[j].value);
+                    console.log("selected meat item: ("+meatArray[j].value+")");
+                    text1 = text1+meatArray[j].value+"<br>";
+                }
+            }
+            var meatCount = selectedMeat.length;
+            if (meatCount > 1) {
+                meatTotal = (meatCount - 1);
+            } else {
+                meatTotal = 0;
+            }
+        runningTotal = (runningTotal + meatTotal);
+            console.log("total selected meat items: "+meatCount);
+            console.log(meatCount+" meat - 1 free meat = "+"$"+meatTotal+".00");
+            console.log("meat text1: "+text1);
+            console.log("Purchase Total: "+"$"+runningTotal+".00");
+           
+alert("e")
+           var veggyTotal = 0;
+            var selectedVeggy = [];
+            var veggyArray = document.getElementsByName("veggy");
+            for (var v = 0; v < veggyArray.length; v++) {
+                if (veggyArray[v].checked) {
+                    selectedVeggy.push(veggyArray[v].value);
+                    console.log("selected veggy item: ("+veggyArray[v].value+")");
+                    text1 = text1+veggyArray[v].value+"<br>";
+                }
+            }
+            var veggyCount = selectedVeggy.length;
+            if (veggyCount > 1) { alert ("f")
+                veggyTotal = (veggyCount - 1);
+            } else {
+                veggyTotal = 0;
+            }
+        runningTotal = (runningTotal + veggyTotal);
+            console.log("total selected veggy items: "+veggyCount);
+            console.log(veggyCount+" veggy - 1 free veggy = "+"$"+veggyTotal+".00");
+            console.log("veggy text1: "+text1);
+            console.log("Purchase Total: "+"$"+runningTotal+".00");
+            document.getElementById("showText").innerHTML=text1;
+            document.getElementById("totalPrice").innerHTML = "<h3Total: <strong>$"+runningTotal+".00"+"</strong></h3>";
+        
+            
+       alert("f")
+       
+       };</script>
+
+    
+
+
+    
+    </body>
+    </html>
